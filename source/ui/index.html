@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MapLibre Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.js"></script>
+    <script>
+        // Initialize the map
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://tiles.openfreemap.org/styles/liberty',
+            center: [-88.0430, 28.6954], // Starting position [lng, lat] for Mobile Bay
+            zoom: 6 // Starting zoom level
+        });
+
+        // Add the MVT source
+        map.on('load', function () {
+            map.addSource('contour', {
+                type: 'vector',
+                tiles: ['http://0.0.0.0:7800/public.contour/{z}/{x}/{y}.pbf']
+            });
+
+            // Add a layer to use the source
+            map.addLayer({
+                'id': 'contour-layer',
+                'type': 'fill',
+                'source': 'contour',
+                'source-layer': 'public.contour',
+                'paint': {
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'elevation'], // Use the "measurement" property
+                        -34, '#00008B', // Dark blue for lowest value
+                        0, '#ADD8E6'    // Light blue for highest value
+                    ],
+                    'fill-opacity': 1
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

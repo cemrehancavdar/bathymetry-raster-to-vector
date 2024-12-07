@@ -1,0 +1,24 @@
+[project]
+authors = ["cemrehancavdar <50503448+cemrehancavdar@users.noreply.github.com>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "processing"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+generate = "python main.py generate_contours"
+smooth = "python main.py smooth_contours"
+upload = "python main.py upload_to_postgis"
+serve = "python main.py start_pg_tileserv"
+map = "python main.py start_http_server"
+
+[dependencies]
+gdal = ">=3.10.0,<4"
+shapely = ">=2.0.6,<3"
+fiona = ">=1.10.1,<2"
+geoalchemy2 = ">=0.16.0,<0.17"
+sqlalchemy = ">=2.0.36,<3"
+psycopg2 = ">=2.9.9,<3"
+shapelysmooth = ">=0.2.1,<0.3"
+geopandas = ">=1.0.1,<2"
