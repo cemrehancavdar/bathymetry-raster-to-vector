@@ -52,7 +52,7 @@ The resulting vector polygons contain DEM data higher than zero. I filter and sm
 [shapelysmooth](https://pypi.org/project/shapelysmooth/) package used to produce smoothed contour polygons.
 
 
-##### Alternative methods
+##### Alternative methods
 
 <details>
 
