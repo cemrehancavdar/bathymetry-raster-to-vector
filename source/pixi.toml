@@ -8,6 +8,7 @@ version = "0.1.0"
 
 [tasks]
 generate = "python main.py generate_contours"
+simplify = "python main.py topojson_simplify"
 smooth = "python main.py smooth_contours"
 upload = "python main.py upload_to_postgis"
 serve = "python main.py start_pg_tileserv"
@@ -22,3 +23,5 @@ sqlalchemy = ">=2.0.36,<3"
 psycopg2 = ">=2.9.9,<3"
 shapelysmooth = ">=0.2.1,<0.3"
 geopandas = ">=1.0.1,<2"
+topojson = ">=1.9,<2"
+geojson = ">=3.1.0,<4"

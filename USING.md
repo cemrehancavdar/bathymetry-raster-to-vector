@@ -21,8 +21,11 @@ pixi install
 # Run Processing Commands
 
 In the current working directory `/source`, run the following commands:
+first export 
 ```sh
+export DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres
 pixi run generate
+pixi run simplify
 pixi run smooth
 pixi run upload
 pixi run serve

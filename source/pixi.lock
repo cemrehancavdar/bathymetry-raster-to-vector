@@ -32,6 +32,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/freexl-2.0.0-hfbad9fb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/gdal-3.10.0-py312h9e5d920_5.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/geoalchemy2-0.16.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/geojson-3.1.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/geopandas-1.0.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/geopandas-base-1.0.1-pyha770c72_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/geos-3.13.0-hf9b8971_0.conda
@@ -136,6 +137,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/svt-av1-2.3.0-hf24288c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.5.0-pyhc1e730c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h5083fa2_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/topojson-1.9-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing-extensions-4.12.2-hd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.12.2-pyha770c72_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2024b-hc8b5060_0.conda
@@ -205,8 +207,6 @@ packages:
   - brotli-bin 1.1.0 hd74edd7_2
   - libbrotlidec 1.1.0 hd74edd7_2
   - libbrotlienc 1.1.0 hd74edd7_2
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 19588
@@ -218,8 +218,6 @@ packages:
   - __osx >=11.0
   - libbrotlidec 1.1.0 hd74edd7_2
   - libbrotlienc 1.1.0 hd74edd7_2
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 16772
@@ -235,8 +233,6 @@ packages:
   - python_abi 3.12.* *_cp312
   constrains:
   - libbrotlicommon 1.1.0 hd74edd7_2
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 339360
@@ -283,8 +279,6 @@ packages:
   - python >=3.12,<3.13.0a0
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 281206
@@ -338,8 +332,6 @@ packages:
   - python >=3.12,<3.13.0a0
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   size: 245638
@@ -416,8 +408,6 @@ packages:
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
   - unicodedata2 >=15.1.0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 2738889
@@ -428,8 +418,6 @@ packages:
   depends:
   - libpng >=1.6.39,<1.7.0a0
   - libzlib >=1.2.13,<2.0.0a0
-  arch: arm64
-  platform: osx
   license: GPL-2.0-only OR FTL
   size: 596430
   timestamp: 1694616332835
@@ -472,6 +460,15 @@ packages:
   license_family: MIT
   size: 55925
   timestamp: 1731505325268
+- conda: https://conda.anaconda.org/conda-forge/noarch/geojson-3.1.0-pyhd8ed1ab_0.conda
+  sha256: 35dc57108acd1cb5e355d49b5ef2149508f6836445935548c3015eaa131fb16d
+  md5: d2297358b98129ef335c65dfdb67c311
+  depends:
+  - python >=3.7
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 18973
+  timestamp: 1699269646838
 - conda: https://conda.anaconda.org/conda-forge/noarch/geopandas-1.0.1-pyhd8ed1ab_1.conda
   sha256: ea0e200967b93a1342670bee137917e93d04742f3c3c626fe435ebb29462bbd7
   md5: 79a9a8d2fd39ecb4081c0df0c10135dc
@@ -630,8 +627,6 @@ packages:
   - python >=3.12,<3.13.0a0
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   size: 60966
@@ -655,8 +650,6 @@ packages:
   depends:
   - libjpeg-turbo >=3.0.0,<4.0a0
   - libtiff >=4.6.0,<4.8.0a0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 211959
@@ -722,8 +715,6 @@ packages:
   md5: d0bf1dff146b799b319ea0434b93f779
   depends:
   - __osx >=11.0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 68426
@@ -734,8 +725,6 @@ packages:
   depends:
   - __osx >=11.0
   - libbrotlicommon 1.1.0 hd74edd7_2
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 28378
@@ -746,8 +735,6 @@ packages:
   depends:
   - __osx >=11.0
   - libbrotlicommon 1.1.0 hd74edd7_2
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 279644
@@ -1114,8 +1101,6 @@ packages:
   - pthread-stubs
   - xorg-libxau >=1.0.11,<2.0a0
   - xorg-libxdmcp
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 323658
@@ -1195,8 +1180,6 @@ packages:
   - python_abi 3.12.* *_cp312
   constrains:
   - jinja2 >=3.0.0
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   size: 24048
@@ -1223,8 +1206,6 @@ packages:
   - python-dateutil >=2.7
   - python_abi 3.12.* *_cp312
   - qhull >=2020.2,<2020.3.0a0
-  arch: arm64
-  platform: osx
   license: PSF-2.0
   license_family: PSF
   size: 7791133
@@ -1303,8 +1284,6 @@ packages:
   - libpng >=1.6.43,<1.7.0a0
   - libtiff >=4.6.0,<4.8.0a0
   - libzlib >=1.2.13,<2.0.0a0
-  arch: arm64
-  platform: osx
   license: BSD-2-Clause
   license_family: BSD
   size: 316603
@@ -1355,8 +1334,6 @@ packages:
   - python-tzdata >=2022a
   - python_abi 3.12.* *_cp312
   - pytz >=2020.1,<2024.2
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   size: 14470437
@@ -1389,8 +1366,6 @@ packages:
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
   - tk >=8.6.13,<8.7.0a0
-  arch: arm64
-  platform: osx
   license: HPND
   size: 41737424
   timestamp: 1729065920347
@@ -1429,8 +1404,6 @@ packages:
   md5: 415816daf82e0b23a736a069a75e9da7
   depends:
   - __osx >=11.0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 8381
@@ -1457,8 +1430,6 @@ packages:
   - python >=3.12,<3.13.0a0
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 564110
@@ -1482,8 +1453,6 @@ packages:
   - python >=3.12,<3.13.0a0
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 494511
@@ -1564,8 +1533,6 @@ packages:
   depends:
   - __osx >=11.0
   - libcxx >=16
-  arch: arm64
-  platform: osx
   license: LicenseRef-Qhull
   size: 516376
   timestamp: 1720814307311
@@ -1614,8 +1581,6 @@ packages:
   - python_abi 3.12.* *_cp312
   - scipy
   - threadpoolctl >=3.1.0
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   size: 9581309
@@ -1637,8 +1602,6 @@ packages:
   - python >=3.12,<3.13.0a0
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   size: 15132713
@@ -1752,6 +1715,18 @@ packages:
   license_family: BSD
   size: 3145523
   timestamp: 1699202432999
+- conda: https://conda.anaconda.org/conda-forge/noarch/topojson-1.9-pyhd8ed1ab_0.conda
+  sha256: 0d1ae68a6a7da71e246577b71e9ac4842bc9be2a8dce4c94d7987885a213e5ba
+  md5: 374606f02f977b5b36e59529ec5df784
+  depends:
+  - numpy
+  - packaging
+  - python >=3
+  - shapely
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 71243
+  timestamp: 1715763599057
 - conda: https://conda.anaconda.org/conda-forge/noarch/typing-extensions-4.12.2-hd8ed1ab_1.conda
   noarch: python
   sha256: c8e9c1c467b5f960b627d7adc1c65fece8e929a3de89967e91ef0f726422fd32
@@ -1785,8 +1760,6 @@ packages:
   - python >=3.12,<3.13.0a0
   - python >=3.12,<3.13.0a0 *_cpython
   - python_abi 3.12.* *_cp312
-  arch: arm64
-  platform: osx
   license: Apache-2.0
   license_family: Apache
   size: 372492
@@ -1839,8 +1812,6 @@ packages:
   md5: 7e0125f8fb619620a0011dc9297e2493
   depends:
   - __osx >=11.0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 13515
@@ -1850,8 +1821,6 @@ packages:
   md5: 77c447f48cab5d3a15ac224edb86a968
   depends:
   - __osx >=11.0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   size: 18487
@@ -1916,8 +1885,6 @@ packages:
   - python_abi 3.12.* *_cp312
   - zstd >=1.5.6,<1.5.7.0a0
   - zstd >=1.5.6,<1.6.0a0
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   size: 330788

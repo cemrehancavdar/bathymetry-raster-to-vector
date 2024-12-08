@@ -3,11 +3,11 @@ import argparse
 import fiona
 from shapely.geometry import shape, mapping, MultiPolygon
 from shapelysmooth import chaikin_smooth
-from shapely import remove_repeated_points
 import geopandas as gpd
 from sqlalchemy import create_engine
 import os
 import webbrowser
+import topojson
 
 def generate_elevation_contours(input_path, output_path):
     command = [
@@ -26,6 +26,12 @@ def generate_elevation_contours(input_path, output_path):
     subprocess.run(command)
     print(f"Contours generated and saved to {output_path}.")
 
+def topojson_simplify(input_path, output_path):
+    with fiona.open(input_path, "r") as source:
+        topo = topojson.Topology(source)
+        data = topo.toposimplify(0.0005)
+        data.to_geojson(output_path)
+    print(f"Simplified contours saved to {output_path}.")
 
 def smooth_contour_shapefile(input_path, output_path):
     with fiona.open(input_path, "r") as source:
@@ -46,13 +52,11 @@ def smooth_contour_shapefile(input_path, output_path):
                     continue
                 # Get the geometry of the feature
                 geom = shape(feature["geometry"])
-
                 # Smooth the geometry
                 smoothed_geom = MultiPolygon(
                     [chaikin_smooth(poly) for poly in geom.geoms]
                 )
-                smoothed_geom = remove_repeated_points(smoothed_geom)
-
+                smoothed_geom = smoothed_geom.simplify(0.00001)
                 # Write the smoothed geometry to the new shapefile
                 sink.write(
                     {
@@ -99,6 +103,7 @@ def main():
         "command",
         choices=[
             "generate_contours",
+            "topojson_simplify",
             "smooth_contours",
             "upload_to_postgis",
             "start_pg_tileserv",
@@ -112,8 +117,11 @@ def main():
     if args.command == "generate_contours":
         generate_elevation_contours("./data/dem.tiff", "./data/contour.shp")
         return
+    if args.command == "topojson_simplify":
+        topojson_simplify("./data/contour.shp", "./data/simplififed_contours.geojson")
+        return
     if args.command == "smooth_contours":
-        smooth_contour_shapefile("./data/contour.shp", "./data/smoothed_contour.shp")
+        smooth_contour_shapefile("./data/simplififed_contours.geojson", "./data/smoothed_contour.shp")
         return
     if args.command == "upload_to_postgis":
         upload_shapefile_to_postgis("./data/smoothed_contour.shp")

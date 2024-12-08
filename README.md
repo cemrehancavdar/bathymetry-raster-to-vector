@@ -45,6 +45,12 @@ This <i><b>solution</b></i> has problems with smoothing jagged contours, which c
 
 </details>
 
+#### Data Simplifying
+
+#### Data Simplification
+
+To achieve a smoother visualization, the data should be simplified before the smoothing process. This is done while preserving the topology using [topojson](https://github.com/mattijn/topojson). Other methods were found to disrupt the neighborhood relationships (topology) of the geometries.
+
 #### Data Processing and Filtering
 
 The resulting vector polygons contain DEM data higher than zero. I filter and smooth the vectors using geospatial Python packages like [shapely](https://pypi.org/project/shapely/).
