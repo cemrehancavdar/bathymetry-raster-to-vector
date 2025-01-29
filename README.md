@@ -1,4 +1,4 @@
-# Bathymetry Task
+# Bathymetry
 
 ![overview](screenshots/overview.png)
 #### Overview
