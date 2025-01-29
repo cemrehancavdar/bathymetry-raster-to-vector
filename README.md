@@ -162,13 +162,6 @@ The layer's style transitions from darker to lighter shades as elevation increas
 This is done with vanilla HTML, CSS, and JavaScript. The code is provided in the repository.
 
     
-
-## Disclamer 
-
-Initially, I tried using QGIS for the entire process, but I transitioned to Python for more automation and flexibility. I chose this approach to come up with new solutions. I've also listed alternatives methods.
-
-I also lead the transformation of ETL processes at my company, and we use [Dagster](https://dagster.io/). IMHO, something like Dagster's [sensors](https://docs.dagster.io/concepts/partitions-schedules-sensors/sensors) feature can be used for orchestration of these kind of tasks.
-
 ## Notes
 
 [^1]: Downloading and using GDAL can be difficult. Pixi is a new, fast, and easier tool to solve these problems. 
